@@ -1,0 +1,16 @@
+﻿
+@model IEnumerable<Team>
+
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home"
+   asp-route-teamid="">Home</a>
+
+@* builds a link for each category/type we're building *@
+@foreach (var t in Model)
+{
+    <a class="btn btn-block
+       @(t.TeamName == ViewBag.SelectedTeam ? "btn-primary" : "btn-outline-secondary")"
+       asp-action="Index" asp-controller="Home"
+       asp-route-teamid="@t.TeamId"
+       asp-route-teamname="@t.TeamName"
+       >@t.TeamName</a>
+}
